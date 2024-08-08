@@ -8,8 +8,8 @@
 #define RESULT_ERROR 2
 
 // eq
-#define SUCCESS 0
-#define FAILURE 1
+#define SUCCESS 1
+#define FAILURE 0
 
 typedef struct matrix_struct {
   double **matrix;
