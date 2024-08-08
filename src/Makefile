@@ -40,7 +40,7 @@ gcov_report: clean test
 	./test.out
 	lcov --directory . --capture --output-file ./report/coverage.info
 	lcov --remove ./report/coverage.info '*/tests/*' -o ./report/coverage.info
-	genhtml coverage.info --output-directory ./report
+	genhtml ./report/coverage.info --output-directory ./report
 	rm -f *.gcno *.gcov *.gcda
 	rm -f */*.gcno */*.gcov */*.gcda
 	rm -f .info
