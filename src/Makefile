@@ -44,6 +44,7 @@ gcov_report: clean test
 	rm -f *.gcno *.gcov *.gcda
 	rm -f */*.gcno */*.gcov */*.gcda
 	rm -f .info
+	open ./report/index.html
 
 check:
 	clang-format --style=Google */*.c -i
