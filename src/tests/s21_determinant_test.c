@@ -16,7 +16,7 @@ START_TEST(test_s21_determinant_matrix_1) {
   double result = 0;
   int status = s21_determinant(&A, &result);
   ck_assert_int_eq(status, RESULT_OK);
-  ck_assert_double_eq_tol(result, 0, 1e-7);
+  ck_assert_double_eq_tol(result, 0, EPS);
   s21_remove_matrix(&A);
 }
 END_TEST
@@ -52,7 +52,7 @@ START_TEST(test_s21_determinant_matrix_3) {
   double result = 0;
   int status = s21_determinant(&A, &result);
   ck_assert_int_eq(status, RESULT_OK);
-  ck_assert_double_eq_tol(result, 257355.491832, 1e-7);
+  ck_assert_double_eq_tol(result, 257355.491832, EPS);
   s21_remove_matrix(&A);
 }
 END_TEST
@@ -79,7 +79,7 @@ START_TEST(test_s21_determinant_matrix_4) {
   double result = 0;
   int status = s21_determinant(&A, &result);
   ck_assert_int_eq(status, RESULT_OK);
-  ck_assert_double_eq_tol(result, -116373.4068860, 1e-7);
+  ck_assert_double_eq_tol(result, -116373.4068860, EPS);
   s21_remove_matrix(&A);
 }
 END_TEST

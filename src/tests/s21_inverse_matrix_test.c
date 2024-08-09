@@ -29,7 +29,7 @@ START_TEST(test_s21_inverse_matrix_1) {
   ck_assert_int_eq(status, RESULT_OK);
   for (int i = 0; i < result.rows; i++) {
     for (int j = 0; j < result.columns; j++) {
-      ck_assert_double_eq_tol(expected.matrix[i][j], result.matrix[i][j], 1e-7);
+      ck_assert_double_eq_tol(expected.matrix[i][j], result.matrix[i][j], EPS);
     }
   }
   s21_remove_matrix(&A);
@@ -74,7 +74,7 @@ START_TEST(test_s21_inverse_matrix_3) {
   ck_assert_int_eq(status, RESULT_OK);
   for (int i = 0; i < result.rows; i++) {
     for (int j = 0; j < result.columns; j++) {
-      ck_assert_double_eq_tol(expected.matrix[i][j], result.matrix[i][j], 1e-7);
+      ck_assert_double_eq_tol(expected.matrix[i][j], result.matrix[i][j], EPS);
     }
   }
   s21_remove_matrix(&A);
@@ -102,11 +102,29 @@ START_TEST(test_s21_inverse_matrix_4) {
 }
 END_TEST
 
+START_TEST(test_s21_inverse_matrix_5) {
+  matrix_t A = {0};
+  s21_create_matrix(1, 1, &A);
+  A.matrix[0][0] = 10;
+  matrix_t expected = {0};
+  s21_create_matrix(1, 1, &expected);
+  expected.matrix[0][0] = 0.1;
+  matrix_t result = {0};
+  int status = s21_inverse_matrix(&A, &result);
+  ck_assert_int_eq(status, RESULT_OK);
+  ck_assert_double_eq_tol(expected.matrix[0][0], result.matrix[0][0], EPS);
+  s21_remove_matrix(&A);
+  s21_remove_matrix(&expected);
+  s21_remove_matrix(&result);
+}
+END_TEST
+
 TCase *tcase_s21_inverse_matrix(void) {
   TCase *tcase = tcase_create("s21_inverse_matrix");
   tcase_add_test(tcase, test_s21_inverse_matrix_1);
   tcase_add_test(tcase, test_s21_inverse_matrix_2);
   tcase_add_test(tcase, test_s21_inverse_matrix_3);
   tcase_add_test(tcase, test_s21_inverse_matrix_4);
+  tcase_add_test(tcase, test_s21_inverse_matrix_5);
   return tcase;
 }

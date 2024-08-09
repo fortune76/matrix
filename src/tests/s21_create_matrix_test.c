@@ -7,7 +7,7 @@ START_TEST(test_s21_create_matrix_1) {
   ck_assert_int_eq(status, RESULT_OK);
   ck_assert_int_eq(A.rows, 1);
   ck_assert_int_eq(A.columns, 1);
-  ck_assert_double_eq_tol(A.matrix[0][0], 0, 1e-7);
+  ck_assert_double_eq_tol(A.matrix[0][0], 0, EPS);
   s21_remove_matrix(&A);
 }
 END_TEST

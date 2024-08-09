@@ -7,9 +7,10 @@
 #define RESULT_INCORRECT 1
 #define RESULT_ERROR 2
 
-// eq
 #define SUCCESS 1
 #define FAILURE 0
+
+#define EPS 1e-7
 
 typedef struct matrix_struct {
   double **matrix;

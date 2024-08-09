@@ -29,7 +29,7 @@ START_TEST(test_s21_transpose_1) {
   ck_assert_int_eq(status, RESULT_OK);
   for (int i = 0; i < result.rows; i++) {
     for (int j = 0; j < result.columns; j++) {
-      ck_assert_double_eq_tol(result.matrix[i][j], expected.matrix[i][j], 1e-7);
+      ck_assert_double_eq_tol(result.matrix[i][j], expected.matrix[i][j], EPS);
     }
   }
   s21_remove_matrix(&A);
@@ -60,7 +60,7 @@ START_TEST(test_s21_transpose_2) {
   ck_assert_int_eq(status, RESULT_OK);
   for (int i = 0; i < result.rows; i++) {
     for (int j = 0; j < result.columns; j++) {
-      ck_assert_double_eq_tol(result.matrix[i][j], expected.matrix[i][j], 1e-7);
+      ck_assert_double_eq_tol(result.matrix[i][j], expected.matrix[i][j], EPS);
     }
   }
   s21_remove_matrix(&A);
